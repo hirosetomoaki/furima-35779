@@ -24,16 +24,16 @@
 | ------------------- | -----------| ----------- |
 | product             | string     | null: false |
 | product_description | text       | null: false |
-| category.id         | integer    | null: false |
-| product_status.id   | integer    | null: false |
+| category_id         | integer    | null: false |
+| product_status_id   | integer    | null: false |
 | price               | integer    | null: false |
-| ship_addrres.id     | integer    | null: false |
-| freight,id          | integer    | null: false |
-| due_date.id         | integer    | null: false |
+| ship_addrres_id     | integer    | null: false |
+| freight_id          | integer    | null: false |
+| due_date_id         | integer    | null: false |
 | user                | references | null: false, foreign_key: true |
 
 ### Association
-- belongs :user
+- belongs_to :user
 - has_one :buy
 - has_one_attached :image
 
@@ -47,10 +47,11 @@
 | street              | string     | null: false |
 | building_name       | string     |             |
 | phone               | string     | null: false |
+| buy                 | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs :buy
+- belongs_to :buy
 
 ## buysテーブル
 
@@ -61,6 +62,6 @@
 
 ### Association
 
-- belongs :user
-- belongs :address
-- has_one :item
+- belongs_to :user
+- belongs_to :item
+- has_one :address
