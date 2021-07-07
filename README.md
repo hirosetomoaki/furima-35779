@@ -27,7 +27,7 @@
 | category_id         | integer    | null: false |
 | product_status_id   | integer    | null: false |
 | price               | integer    | null: false |
-| ship_addrres_id     | integer    | null: false |
+| state_id            | integer    | null: false |
 | freight_id          | integer    | null: false |
 | due_date_id         | integer    | null: false |
 | user                | references | null: false, foreign_key: true |
@@ -37,16 +37,16 @@
 - has_one :buy
 - has_one_attached :image
 
-## addressテーブル
+## addressesテーブル
 
 | Column              | Type       | Options     |
 | ------------------- | -----------| ----------- |
-| postal_code         | string     | null: false |
-| state               | text       | null: false |
+| postal_code         | integer    | null: false |
+| state_id            | integer    | null: false |
 | city                | string     | null: false |
 | street              | string     | null: false |
 | building_name       | string     |             |
-| phone               | string     | null: false |
+| phone               | integer    | null: false |
 | buy                 | references | null: false, foreign_key: true |
 
 ### Association
