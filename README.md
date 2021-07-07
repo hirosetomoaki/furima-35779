@@ -1,24 +1,66 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
 
-Things you may want to cover:
+| Column              | Type   | Options                   |
+| ------------------- | ------ | ------------------------- |
+| nickname            | string | null: false               |
+| email               | string | null: false               |
+| encrypted_password  | string | null: false, unique: true |
+| last_name           | string | null: false               |
+| first_name          | string | null: false               |
+| last_name_initials  | string | null: false               |
+| first_name_initials | string | null: false               |
+| birth_date          | string | null: false               |
 
-* Ruby version
+### Association
+- has_many :items
+- has_many :buys
 
-* System dependencies
 
-* Configuration
+## itemsテーブル
 
-* Database creation
+| Column              | Type       | Options     |
+| ------------------- | -----------| ----------- |
+| product             | string     | null: false |
+| product_description | text       | null: false |
+| category            | string     | null: false |
+| product_status      | string     | null: false |
+| price               | string     | null: false |
+| ship_addrres        | string     | null: false |
+| freight             | string     | null: false |
+| due_date            | string     | null: false |
+| user                | references | null: false, foreign_key: true |
 
-* Database initialization
+### Association
+- belongs :users
+- has_one :buys
+- has_one_attached :image
 
-* How to run the test suite
+## addressテーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column              | Type       | Options     |
+| ------------------- | -----------| ----------- |
+| postal_code         | string     | null: false |
+| state               | text       | null: false |
+| city                | string     | null: false |
+| street              | string     | null: false |
+| building_name       | string     | null: true  |
+| phone               | string     | null: false |
 
-* Deployment instructions
+### Association
 
-* ...
+- belongs :buys
+
+## buysテーブル
+
+| Column              | Type       | Options                        |
+| ------------------- | -----------| ------------------------------ |
+| user                | references | null: false, foreign_key: true |
+| item                | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs :user
+- belongs :address
+- has_one :buys
