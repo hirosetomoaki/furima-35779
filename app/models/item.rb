@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to :due_date
 
   belongs_to :user
-  has_one :buy
+  #has_one :buy
   has_one_attached :image
 
   # validates :price, inclusion: { in: 300..9999999 }

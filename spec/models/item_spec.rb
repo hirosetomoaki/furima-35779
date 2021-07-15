@@ -24,12 +24,12 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Product can't be blank")
       end
       it 'product_descriptionが空では出品できない' do
-        @item.product_description = nil
+        @item.product_description = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Product description can't be blank")
       end
-      it 'categoryが空では出品できない' do
-        @item.category = nil
+      it 'categoryが「--」を選択した際に出品できない' do
+        @item.category_id =  1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
@@ -53,18 +53,28 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not a number')
       end
-      it 'stateが空では出品できない' do
-        @item.state = nil
+      it 'priceが全角数字では出品できない' do
+        @item.price = '０'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price is not a number')
+      end
+      it 'priceが半角英数混合では出品できない' do
+        @item.price = 'a1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price is not a number')
+      end
+      it 'stateが「--」を選択した際に出品できない' do
+        @item.state_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("State can't be blank")
       end
-      it 'freightが空では出品できない' do
-        @item.freight = nil
+      it 'freightが「--」を選択した際に出品できない' do
+        @item.freight_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Freight can't be blank")
       end
-      it 'due_dateが空では出品できない' do
-        @item.due_date = nil
+      it 'due_dateが「--」を選択した際に出品できない' do
+        @item.due_date_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Due date can't be blank")
       end
