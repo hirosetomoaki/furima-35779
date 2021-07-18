@@ -29,12 +29,12 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Product description can't be blank")
       end
       it 'categoryが「--」を選択した際に出品できない' do
-        @item.category_id =  1
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
       it 'product_statusが「--」を選択した際に出品できない' do
-        @item.product_status_id =  1
+        @item.product_status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Product status can't be blank")
       end
