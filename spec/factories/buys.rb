@@ -5,6 +5,6 @@ FactoryBot.define do
     city                    { '板橋区' }
     street                  { '板橋1-1-1' }
     phone                   { '00000000000'}
-
+    token                   {"to_test_abcd00000000000000000000"}
   end
 end

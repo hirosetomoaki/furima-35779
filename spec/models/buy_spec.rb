@@ -6,11 +6,11 @@ RSpec.describe Buy, type: :model do
   end
 
   describe '購入機能' do
-    #context '購入できる' do
-      #it '全ての記述が存在すれば購入できる' do
-       # expect(@buyaddress).to be_valid
-      #end
-    #end
+    context '購入できる' do
+      it '全ての記述が存在すれば購入できる' do
+        expect(@buyaddress).to be_valid
+      end
+    end
 
     context '購入できない' do
       #it 'クレジットカード情報が存在しないと購入できない' do
@@ -54,7 +54,11 @@ RSpec.describe Buy, type: :model do
         @buyaddress.valid?
         expect(@buyaddress.errors.full_messages).to include("Phone is invalid")
       end
-
+      it 'tokenが存在しないと購入できない' do
+        @buyaddress.token = nil
+        @buyaddress.valid?
+        expect(@buyaddress.errors.full_messages).to include("Token can't be blank")
+      end
     end
   end
 
