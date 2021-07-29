@@ -3,6 +3,10 @@ class BuysController < ApplicationController
 
   def index
     @buyaddress = BuyAddress.new
+    redirect_to root_path unless user_signed_in?
+    if @item.buy.present?
+      redirect_to root_path 
+    end
   end
 
   def create
