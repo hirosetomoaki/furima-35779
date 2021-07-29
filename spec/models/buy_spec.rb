@@ -13,12 +13,6 @@ RSpec.describe Buy, type: :model do
     end
 
     context '購入できない' do
-      #it 'クレジットカード情報が存在しないと購入できない' do
-      #end
-      #it 'クレジットカード有効期限が存在しないと購入できない' do
-      #end
-      #it 'クレジットカードセキュリティコードが存在しないと購入できない' do
-      #end
       it '郵便番号が存在しないと購入できない' do
         @buyaddress.postal_code = ''
         @buyaddress.valid?
