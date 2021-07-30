@@ -41,7 +41,7 @@
 
 | Column              | Type       | Options     |
 | ------------------- | -----------| ----------- |
-| postal_code         | string    | null: false |
+| postal_code         | string     | null: false |
 | state_id            | integer    | null: false |
 | city                | string     | null: false |
 | street              | string     | null: false |
