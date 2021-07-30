@@ -1,12 +1,10 @@
 class BuysController < ApplicationController
   before_action :item_params, only: [:index, :create]
-  before_action :authenticate_user!, only: [:index]
+  before_action :user_params, only: [:index, :create]
+  before_action :authenticate_user!, only: [:index, :create]
 
   def index
     @buyaddress = BuyAddress.new
-    if current_user.id == @item.user.id || @item.buy.present?
-      redirect_to root_path
-    end
   end
 
   def create
@@ -38,5 +36,12 @@ class BuysController < ApplicationController
       currency: 'jpy'
     )
   end
+
+  def user_params
+    if current_user.id == @item.user.id || @item.buy.present?
+      redirect_to root_path
+    end
+  end
+
 
 end
