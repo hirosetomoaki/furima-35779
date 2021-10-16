@@ -33,6 +33,14 @@
   object-fit: contain;
 }
 
+.item-sub {
+  height: 10vh;
+  width: 20vw;
+  min-height: 200px;
+  /* background-color: rgb(205, 202, 202); */
+  object-fit: contain;
+}
+
 .item-price-box {
   margin: 25px 0px;
   display: flex;
@@ -207,10 +215,3 @@
 }
 
 
-.item-sub {
-  height: 10vh;
-  width: 20vw;
-  min-height: 200px;
-  /* background-color: rgb(205, 202, 202); */
-  object-fit: contain;
-}

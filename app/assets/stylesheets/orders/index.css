@@ -60,6 +60,33 @@
   font-size: 12px;
 }
 
+
+.buy-box {
+  /* background-color: #FFF; */
+  width: 70vw;
+  min-width: 1200px;
+  /* padding: 10vh 15vw; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buy_item_img {
+  
+}
+
+.buy-box-img{
+  height: 50vh;
+  width: 60vw;
+  min-height: 500px;
+  object-fit: contain;
+}
+
+.buy-item-sub{
+  height: 10vh;
+  width: 18vw;
+  min-height: 200px;
+}
 /* /購入内容の表示 */
 
 /* 支払額の表示 */
